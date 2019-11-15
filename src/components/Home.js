@@ -3,9 +3,6 @@ import { useHistory } from "react-router-dom";
 import axios from "axios";
 import "../Style.css";
 import Loader from "./Loader";
-import FullscreenFallBack from "../FullscreenFallBack";
-
-// import { sentryDefaultLog } from "../handleErrors/SentryConfig";
 
 const Home = () => {
   let history = useHistory();
@@ -23,7 +20,7 @@ const Home = () => {
         console.log(err);
         setLoader(false);
       });
-  }, []);
+  }, [data]);
 
   const _onClickHandler = name => {
     const modName = name.replace(" ", "+");
@@ -50,11 +47,3 @@ const Home = () => {
 };
 
 export default Home;
-
-// useEffect(() => {
-//   const value = 1;
-//   if (value === 1) {
-//     console.log("Demo Error Triggereed");
-//     sentryDefaultLog("Demo Error");
-//   }
-// }, []);

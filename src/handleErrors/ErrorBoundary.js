@@ -1,5 +1,6 @@
 import React from "react";
 import * as Sentry from "@sentry/browser";
+import FullscreenFallBack from "../components/FullscreenFallBack"
 
 class ErrorBoundary extends React.Component {
   constructor(props) {
@@ -21,11 +22,7 @@ class ErrorBoundary extends React.Component {
   render() {
     if (this.state.error) {
       //render fallback UI
-      return (
-        <div>
-          <h2>Oops Somthing went wrong..:(</h2>
-        </div>
-      );
+      return (<FullscreenFallBack />);
     } else {
       //when there's not an error, render children untouched
       return this.props.children;
